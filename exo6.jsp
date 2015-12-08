@@ -26,14 +26,17 @@
 		if (req.readyState ==4)
 				if (req.status == 200)
 				{
-					var reponse = req.responseText;
+					var docXml = requete.responseXML;
+					var elmts = docXML.getElementsByTagName("produit");
+					var produit = elmts[0].firstChild.nodeValue;
+
+
 					var monElmt = document.getElementById("textArea");
-					monElmt.value = reponse;
+					monElmt.value = produit+"";
 				}
 			else alert("erreur : "+req.status);
 		}
 
-	setInterval(cliquer,500);
 	</script>
 
 	<%! int cpt=0; %>

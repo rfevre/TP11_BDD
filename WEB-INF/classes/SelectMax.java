@@ -54,12 +54,12 @@ public class SelectMax extends HttpServlet
 			pno = Integer.parseInt(rs.getString("pno"));
 		}
 
-		out.println("<?xml version="1.0" encoding="UTF-8"?>
-					<produit>
-						<prix>"+prix+"</prix>
-						<libelle>"+libelle+"</libelle>
-						<pno>"+pno+"</pno>
-					<produit>");
+		out.println("<?xml version='1.0' encoding='UTF-8' ?>"+
+					"<produit>"+
+						"<prix>"+prix+"</prix>"+
+						"<libelle>"+libelle+"</libelle>"+
+						"<pno>"+pno+"</pno>"+
+					"<produit>");
 
 	    }catch(Exception e) {
 	    out.println(e.getMessage());
