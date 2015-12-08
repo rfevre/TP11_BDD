@@ -11,6 +11,7 @@ public class SelectMax extends HttpServlet
     public void service( HttpServletRequest req, HttpServletResponse res ) 
 	throws ServletException, IOException
     {
+    res.setContentType("text/xml");
 	PrintWriter out = res.getWriter();
     
     Connection con = null;
@@ -54,12 +55,11 @@ public class SelectMax extends HttpServlet
 			pno = Integer.parseInt(rs.getString("pno"));
 		}
 
-		out.println("<?xml version='1.0' encoding='UTF-8' ?>"+
-					"<produit>"+
-						"<prix>"+prix+"</prix>"+
-						"<libelle>"+libelle+"</libelle>"+
-						"<pno>"+pno+"</pno>"+
-					"<produit>");
+		out.println("<data>");
+		out.println("<prix>"+prix+"</prix>");
+		out.println("<libelle>"+libelle+"</libelle>");
+		out.println("<pno>"+pno+"</pno>");
+		out.println("</data>");
 
 	    }catch(Exception e) {
 	    out.println(e.getMessage());

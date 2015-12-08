@@ -26,13 +26,13 @@
 		if (req.readyState ==4)
 				if (req.status == 200)
 				{
-					var docXml = requete.responseXML;
-					var elmts = docXML.getElementsByTagName("produit");
-					var produit = elmts[0].firstChild.nodeValue;
-
-
-					var monElmt = document.getElementById("textArea");
-					monElmt.value = produit+"";
+					var data = req.responseXML;
+					var prix = data.getElementsByTagName("prix")[0].firstChild;
+					var libelle = data.getElementsByTagName("libelle")[0].firstChild;
+					var pno = data.getElementsByTagName("pno")[0].firstChild;
+					document.getElementById("prix").value = prix.nodeValue;
+					document.getElementById("libelle").value = libelle.nodeValue;
+					document.getElementById("pno").value = pno.nodeValue;
 				}
 			else alert("erreur : "+req.status);
 		}
@@ -46,9 +46,11 @@
 
 	<center>
 		<form>
-			<h1>Récupérer contenu fichier</h1>
+			<h1>Récupérer le SELECT MAX</h1>
 			<h2>Compteur = <%= cpt %> </h2>
-			<textarea rows="4" cols="50" id="textArea"> </textarea>
+			<input type="text" value="prix" id="prix" />
+			<input type="text" value="libelle" id="libelle" />
+			<input type="text" value="pno" id="pno" />
 			<p/>
 		    <input type="button" value="Valider" onclick="cliquer()" />
 	    </form>
