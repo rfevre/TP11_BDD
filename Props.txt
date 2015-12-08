@@ -1,0 +1,3 @@
+url=jdbc:postgresql://psqlserv/da2i
+nom=fevrer
+mdp=moi

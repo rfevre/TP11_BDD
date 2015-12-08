@@ -1,0 +1,19 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/servlet/Insert")
+public class Insert extends HttpServlet
+{
+    public void service( HttpServletRequest req, HttpServletResponse res ) 
+	throws ServletException, IOException
+    {
+	PrintWriter out = res.getWriter();
+	res.setContentType( "text/html" );
+	out.println("<!doctype html>");
+	out.println("<head><title>servlet Hello</title></head><body><center> ");
+	out.println("<h1>Hello "+req.getParameter("nom")+ " </h1> ");
+	out.println("</body></html> ");
+    }
+}
