@@ -27,12 +27,16 @@
 				if (req.status == 200)
 				{
 					var data = req.responseXML;
-					var prix = data.getElementsByTagName("prix")[0].firstChild;
-					var libelle = data.getElementsByTagName("libelle")[0].firstChild;
-					var pno = data.getElementsByTagName("pno")[0].firstChild;
-					document.getElementById("prix").value = prix.nodeValue;
-					document.getElementById("libelle").value = libelle.nodeValue;
-					document.getElementById("pno").value = pno.nodeValue;
+					var id = data.getElementsByTagName("id")[0].firstChild;
+					var login = data.getElementsByTagName("login")[0].firstChild;
+					var nom = data.getElementsByTagName("nom")[0].firstChild;
+					var prenom = data.getElementsByTagName("prenom")[0].firstChild;
+					var datenaiss = data.getElementsByTagName("datenaiss")[0].firstChild;
+					document.getElementById("id").value = id.nodeValue;
+					document.getElementById("login").value = login.nodeValue;
+					document.getElementById("nom").value = nom.nodeValue;
+					document.getElementById("prenom").value = prenom.nodeValue;
+					document.getElementById("datenaiss").value = datenaiss.nodeValue;
 				}
 			else alert("erreur : "+req.status);
 		}
